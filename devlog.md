@@ -3,12 +3,7 @@
 **Project:** AIOT-DIC7  
 **Date:** 2026-04-28  
 **Author:** roy12358  
-
----
-
-## Overview
-
-Built an interactive Streamlit app that demonstrates the full CRISP-DM data mining framework applied to a simple linear regression problem. Users can tune all key parameters via sidebar sliders and see the model update in real time.
+**Live:** https://aiot-dic7.streamlit.app
 
 ---
 
@@ -22,14 +17,9 @@ Built an interactive Streamlit app that demonstrates the full CRISP-DM data mini
 - Visualised with matplotlib: blue scatter + red regression line
 
 ### v2 — Convert to Streamlit (Basic)
-Converted the script to a Streamlit app following the CRISP-DM structure:
+Converted to Streamlit following the CRISP-DM structure:
 - **Sidebar sliders:** slope `a`, intercept `b`, noise σ, sample size `n`, test split %, random seed
-- **Phase 1** Business Understanding — equation display  
-- **Phase 2** Data Understanding — dataset preview + descriptive stats  
-- **Phase 3** Data Preparation — train/test split info  
-- **Phase 4** Modelling — learned coefficients vs true values  
-- **Phase 5** Evaluation — MSE / R² metric cards  
-- **Phase 6** Deployment — scatter plot + regression line  
+- **Phase 1–6** CRISP-DM sections rendered as page sections
 - Dark-mode premium design (deep navy palette, gradient hero)
 
 ### v3 — Enhanced Visuals (7 charts)
@@ -65,6 +55,20 @@ Reverted to a single clean chart:
 - Kept the v4 layout (topbar + metrics + chart visible on load)
 - CRISP-DM phases remain in expanders
 
+### v6 — GitHub Push + Docs
+- Created `devlog.md` and `conversation.md`
+- Initialized git repo, added remote `https://github.com/roy12358/AIOT-DIC7.git`
+- Committed and pushed all files
+- Created `README.md` with screenshot, feature table, CRISP-DM breakdown, local setup guide
+- Captured `screenshot.png` of local app for README embed
+- Committed README + screenshot and pushed
+
+### v7 — Streamlit Cloud Deployment + Fix
+- User deployed app via Streamlit Cloud at https://aiot-dic7.streamlit.app
+- **Bug:** `ModuleNotFoundError: matplotlib` — `requirements.txt` was not committed (write failed silently during previous session)
+- **Fix:** Recreated `requirements.txt`, force-added, committed, pushed
+- Streamlit Cloud auto-redeployed — app now live and fully functional
+
 ---
 
 ## Final Architecture
@@ -83,22 +87,28 @@ app.py
 └── Expanders                 # 6 CRISP-DM phase details
 ```
 
+## Project Structure
+
+```
+AIOT-DIC7/
+├── app.py
+├── requirements.txt
+├── screenshot.png
+├── README.md
+├── devlog.md
+├── conversation.md
+└── .gitignore
+```
+
 ## Dependencies
 
 ```
-streamlit
-scikit-learn
-matplotlib
-pandas
-numpy
-scipy
+streamlit / scikit-learn / matplotlib / pandas / numpy / scipy
 ```
-
----
 
 ## Key Design Decisions
 
-- **Chart-first layout**: visualization above all text — immediate visual feedback
-- **All CRISP-DM text in expanders**: keeps screen uncluttered, accessible on demand  
-- **Dark navy palette**: `#0f2027` / `#16213e` / `#2c5364` for a premium feel
-- **Reactive**: every slider change re-generates data, re-trains, and re-renders instantly
+- **Chart-first layout**: visualization above text — immediate visual feedback on load
+- **CRISP-DM in expanders**: keeps screen uncluttered, details accessible on demand  
+- **Dark navy palette**: `#0f2027` / `#16213e` / `#2c5364` — premium feel
+- **Reactive**: every slider re-generates data, re-trains, re-renders instantly
