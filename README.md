@@ -8,7 +8,7 @@ An interactive **Streamlit** app that walks through the complete [CRISP-DM](http
 
 ## 🚀 Live Demo
 
-> **[▶ Open on Streamlit Cloud](https://roy12358-aiot-dic7.streamlit.app)**
+> **[▶ Open on Streamlit Cloud](https://aiot-dic7.streamlit.app)**
 
 ---
 
